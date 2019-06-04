@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: go-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-test
+  template:
+    metadata:
+      labels:
+        app: go-test
+    spec:
+      containers:
+        - name: go-test
+          image: pualrdwade/go-test:1.1 #首先使用1.1版本，便于后续升级测试
+          ports:
+            - containerPort: 8080
